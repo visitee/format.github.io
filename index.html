@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Name Formatter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Name Formatter</h1>
+    <label for="loginName">Enter Login Name:</label>
+    <input type="text" id="loginName" placeholder="Enter login name">
+    <button onclick="formatLoginName()">Submit</button>
+    <p id="result" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></p>
+    <script>
+        function formatLoginName() {
+            const input = document.getElementById('loginName').value.trim();
+            let formattedLogin;
+            if (input.includes('@')) {
+                formattedLogin = input; // Use the full value if it contains "@"
+            } else {
+                formattedLogin = input + '@xyz.com'; // Add suffix if "@" is missing
+            }
+            document.getElementById('result').textContent = `Formatted Login Name: ${formattedLogin}`;
+        }
+    </script>
+</body>
+</html>
